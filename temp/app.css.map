@@ -1,0 +1,1 @@
+{"version":3,"sources":["app/styles/app.scss"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA","file":"public/app.css","sourcesContent":["/* line 4, /Users/dan/Projects/test_without_requirejs/app/styles/app.scss */\nbody {\n  font-family: Georgia, serif;\n  font-size: 16px;\n  background: green;\n  color: white; }\n"]}
