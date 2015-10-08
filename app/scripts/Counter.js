@@ -15,13 +15,23 @@ var Counter = React.createClass({
 	},
 	render: function() {
 		return( 
-			<div>
-				<h3>Counter</h3>
-				<span>
-					<h5>Count: {this.state.count}</h5>
-					<Incrementer count={this.state.count} onClick={this.incrementHandler} />
-					<Decrementer count={this.state.count} onClick={this.decrementHandler} />
-				</span>
+			<div className="container-fluid">
+				<div className="row">
+					<div className="col-xs-12 col-md-offset-5">
+						<h3>Counter</h3>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-xs-12 col-md-1 col-md-offset-5">
+						<Decrementer count={this.state.count} onClick={this.decrementHandler} />
+					</div>
+					<div className="col-xs-12 col-md-1">
+						<h3>{this.state.count}</h3>
+					</div>
+					<div className="col-xs-12 col-md-1">
+						<Incrementer count={this.state.count} onClick={this.incrementHandler} />
+					</div>
+				</div>
 			</div>
 		);
 	}
