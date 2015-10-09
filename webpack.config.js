@@ -9,7 +9,7 @@ module.exports = {
     "./app/scripts/App.js"
   ],
   output: {
-    path: path.join(__dirname, "public"),
+    path: "./public",
     filename: "bundle.js"
   },
   plugins: [

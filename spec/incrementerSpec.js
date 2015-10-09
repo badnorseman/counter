@@ -1,8 +1,15 @@
 "use strict";
+import React from "react/addons";
+import Incrementer from "../app/scripts/Incrementer";
+
+let TestUtils = React.addons.TestUtils;
 
 describe("Incrementer", () => {
-  it("counts 1", () => {
-    // let Incrementer = require("../app/scripts/Incrementer");
-    expect(1).toBe(1);
+
+	let count = 2;
+  let instance = TestUtils.renderIntoDocument(<Incrementer count={count} />);
+
+  it("should equal 2", () => {
+  	expect(instance.props.count).toBe(2);
   });
-})
+});

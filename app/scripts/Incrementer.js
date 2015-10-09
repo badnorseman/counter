@@ -8,7 +8,7 @@ var Incrementer = React.createClass({
 	},
 	render: function() {
 		return( 
-			<button onClick={this.onClickHandler} type="button" className="btn btn-default" aria-label="Increment">
+			<button ref="button" onClick={this.onClickHandler} type="button" className="btn btn-default" aria-label="Increment">
 				<span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
 			</button>
 		);

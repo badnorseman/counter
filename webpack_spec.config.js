@@ -1,28 +1,25 @@
-var path = require("path");
+"use strict";
+
 var webpack = require("webpack");
 
 module.exports = {
   entry: [
-    "./spec/incrementerSpec"
+    "./spec/CounterSpec.js",
+    "./spec/IncrementerSpec.js",
+    "./spec/NameSpec.js"
   ],
+
   output: {
-    path: path.join(__dirname, "spec"),
-    filename: "spec.js"
+    path: "./spec",
+    filename: "spec.js",
+    publicPath: "/test"
   },
-  resolve: {
-    extensions: ["", ".js"]
-  },
+
   module: {
     loaders: [{
       test: /\.js$/,
-      include: path.join(__dirname, "spec"),
-      loader: "babel"
-    }, {
-      test: /\.css$/,
-      loader: "style-loader!css-loader"
-    }, {
-      test: /\.(jpg|png)$/,
-      loader: "url-loader?limit=8192"
+      exclude: /node_modules/,
+      loader: "babel-loader"
     }]
   }
 };

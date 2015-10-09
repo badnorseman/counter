@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/test";
+/******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -44,9 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(1);
-	__webpack_require__(179);
-	module.exports = __webpack_require__(180);
+	module.exports = __webpack_require__(1);
 
 
 /***/ },
@@ -54,38 +52,26 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var React = __webpack_require__(2);
+	// var Incrementer = require("../app/scripts/Incrementer");
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	var TestUtils = React.addons.TestUtils;
 
-	var _reactAddons = __webpack_require__(2);
+	describe("Incrementer", function () {
+	  var component;
+	  var count;
 
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	  beforeEach(function () {
+	    count = 1;
+	    // component = TestUtils.renderIntoDocument(
+	    // 	<Incrementer count={count} />
+	    // );
+	    // component.getDOMNode().
+	  });
 
-	var _appScriptsCounter = __webpack_require__(175);
-
-	var _appScriptsCounter2 = _interopRequireDefault(_appScriptsCounter);
-
-	describe("Counter", function () {
-
-		var TestUtils = _reactAddons2["default"].addons.TestUtils;
-
-		describe("incrementHandler", function () {
-			var instance = TestUtils.renderIntoDocument(_reactAddons2["default"].createElement(_appScriptsCounter2["default"], null));
-			instance.incrementHandler(2);
-
-			it("should add 2", function () {
-				expect(instance.state.count).toBe(2);
-			});
-		});
-
-		describe("decrementHandler", function () {
-			var instance = TestUtils.renderIntoDocument(_reactAddons2["default"].createElement(_appScriptsCounter2["default"], null));
-			instance.decrementHandler(-2);
-
-			it("should substract 2", function () {
-				expect(instance.state.count).toBe(-2);
-			});
-		});
+	  it("increment count to 2", function () {
+	    expect(count).toBe(1);
+	  });
 	});
 
 /***/ },
@@ -22577,192 +22563,6 @@
 
 	module.exports = ReactTestUtils;
 
-
-/***/ },
-/* 175 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var React = __webpack_require__(176);
-	var Decrementer = __webpack_require__(177);
-	var Incrementer = __webpack_require__(178);
-
-	var Counter = React.createClass({
-		displayName: "Counter",
-
-		getInitialState: function getInitialState() {
-			return { count: 0 };
-		},
-		incrementHandler: function incrementHandler(count) {
-			this.setState({ count: count });
-		},
-		decrementHandler: function decrementHandler(count) {
-			this.setState({ count: count });
-		},
-		render: function render() {
-			return React.createElement(
-				"div",
-				null,
-				React.createElement(
-					"h3",
-					null,
-					"Counter"
-				),
-				React.createElement(Decrementer, { count: this.state.count, onClick: this.decrementHandler }),
-				React.createElement(
-					"h5",
-					null,
-					this.state.count
-				),
-				React.createElement(Incrementer, { count: this.state.count, onClick: this.incrementHandler })
-			);
-		}
-	});
-
-	module.exports = Counter;
-
-/***/ },
-/* 176 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(7);
-
-
-/***/ },
-/* 177 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var React = __webpack_require__(176);
-
-	var Decrementer = React.createClass({
-		displayName: "Decrementer",
-
-		onClickHandler: function onClickHandler() {
-			var count = this.props.count - 1;
-			this.props.onClick(count);
-		},
-		render: function render() {
-			return React.createElement(
-				"button",
-				{ onClick: this.onClickHandler, type: "button", className: "btn btn-default", "aria-label": "Decrement" },
-				React.createElement("span", { className: "glyphicon glyphicon-minus", "aria-hidden": "true" })
-			);
-		}
-	});
-
-	module.exports = Decrementer;
-
-/***/ },
-/* 178 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var React = __webpack_require__(176);
-
-	var Incrementer = React.createClass({
-		displayName: "Incrementer",
-
-		onClickHandler: function onClickHandler() {
-			var count = this.props.count + 1;
-			this.props.onClick(count);
-		},
-		render: function render() {
-			return React.createElement(
-				"button",
-				{ ref: "button", onClick: this.onClickHandler, type: "button", className: "btn btn-default", "aria-label": "Increment" },
-				React.createElement("span", { className: "glyphicon glyphicon-plus", "aria-hidden": "true" })
-			);
-		}
-	});
-
-	module.exports = Incrementer;
-
-/***/ },
-/* 179 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var _reactAddons = __webpack_require__(2);
-
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
-
-	var _appScriptsIncrementer = __webpack_require__(178);
-
-	var _appScriptsIncrementer2 = _interopRequireDefault(_appScriptsIncrementer);
-
-	var TestUtils = _reactAddons2["default"].addons.TestUtils;
-
-	describe("Incrementer", function () {
-
-	  var count = 2;
-	  var instance = TestUtils.renderIntoDocument(_reactAddons2["default"].createElement(_appScriptsIncrementer2["default"], { count: count }));
-
-	  it("should equal 2", function () {
-	    expect(instance.props.count).toBe(2);
-	  });
-	});
-
-/***/ },
-/* 180 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var _reactAddons = __webpack_require__(2);
-
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
-
-	var _appScriptsName = __webpack_require__(181);
-
-	var _appScriptsName2 = _interopRequireDefault(_appScriptsName);
-
-	var TestUtils = _reactAddons2["default"].addons.TestUtils;
-
-	describe("Name", function () {
-	  var component;
-
-	  beforeEach(function () {
-	    component = TestUtils.renderIntoDocument(_reactAddons2["default"].createElement(_appScriptsName2["default"], { name: "Dan" }));
-	  });
-
-	  it("should display the correct name", function () {
-	    expect(component.getDOMNode().textContent).toMatch(/Dan/);
-	  });
-	});
-
-/***/ },
-/* 181 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var _react = __webpack_require__(176);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	exports["default"] = _react2["default"].createClass({
-	  displayName: "Name",
-
-	  render: function render() {
-	    return _react2["default"].createElement(
-	      "span",
-	      null,
-	      this.props.name
-	    );
-	  }
-	});
-	module.exports = exports["default"];
 
 /***/ }
 /******/ ]);
